@@ -1,0 +1,26 @@
+<div class="container text-center">
+  <h3>Make a Room</h3>
+  <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+      <div class="form-group">
+          <label for="displayName">Display Name</label>
+          <input type="text" class="form-control" name="displayName"
+                 [(ngModel)]="model.displayName" #displayName="ngModel"
+                 [ngClass]="{ 'is-invalid': f.submitted && displayName.invalid }" required />
+          <div *ngIf="f.submitted && displayName.invalid" class="invalid-feedback">
+              <div *ngIf="displayName.errors.required">Display Name is required</div>
+          </div>
+      </div>
+
+      <div class="form-group">
+          <label for="roomName">Room Name</label>
+          <input type="text" class="form-control" name="roomName"
+                 [(ngModel)]="model.roomName" #roomName="ngModel"
+                 [ngClass]="{ 'is-invalid': f.submitted && roomName.invalid }" required />
+          <div *ngIf="f.submitted && roomName.invalid" class="invalid-feedback">
+              <div *ngIf="roomName.errors.required">Room Name is required</div>
+          </div>
+      </div>
+
+      <button type="submit" class="btn btn-danger">Submit</button>
+  </form>
+</div>

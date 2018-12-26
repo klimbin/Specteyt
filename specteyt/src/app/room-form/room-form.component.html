@@ -8,7 +8,7 @@
                  [ngClass]="{ 'is-invalid': f.submitted && displayName.invalid }" required pattern="[\w\.]+"/>
           <div *ngIf="f.submitted && displayName.invalid" class="invalid-feedback">
               <div *ngIf="displayName.errors.required">Display Name is required</div>
-              <div *ngIf="displayName.errors.pattern">Display Name may not contain whitespace or special characters.</div>
+              <div *ngIf="displayName.errors.pattern">No whitespace or special characters.</div>
           </div>
       </div>
 
@@ -19,7 +19,7 @@
                  [ngClass]="{ 'is-invalid': f.submitted && roomName.invalid }" required pattern="^\w+(?: \w+)*$"/>
           <div *ngIf="f.submitted && roomName.invalid" class="invalid-feedback">
               <div *ngIf="roomName.errors.required">Room Name is required</div>
-              <div *ngIf="roomName.errors.pattern">Room Name may not begin or end with whitespace or contain special characters.</div>
+              <div *ngIf="roomName.errors.pattern">No trailing whitespace or special characters.</div>
           </div>
       </div>
 

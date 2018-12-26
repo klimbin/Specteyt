@@ -5,9 +5,10 @@
           <label for="displayName">Display Name</label>
           <input type="text" class="form-control" name="displayName"
                  [(ngModel)]="model.displayName" #displayName="ngModel"
-                 [ngClass]="{ 'is-invalid': f.submitted && displayName.invalid }" required />
+                 [ngClass]="{ 'is-invalid': f.submitted && displayName.invalid }" required pattern="[\w\.]+"/>
           <div *ngIf="f.submitted && displayName.invalid" class="invalid-feedback">
               <div *ngIf="displayName.errors.required">Display Name is required</div>
+              <div *ngIf="displayName.errors.pattern">Display Name may not contain whitespace or special characters.</div>
           </div>
       </div>
 
@@ -15,9 +16,10 @@
           <label for="roomName">Room Name</label>
           <input type="text" class="form-control" name="roomName"
                  [(ngModel)]="model.roomName" #roomName="ngModel"
-                 [ngClass]="{ 'is-invalid': f.submitted && roomName.invalid }" required />
+                 [ngClass]="{ 'is-invalid': f.submitted && roomName.invalid }" required pattern="^\w+(?: \w+)*$"/>
           <div *ngIf="f.submitted && roomName.invalid" class="invalid-feedback">
               <div *ngIf="roomName.errors.required">Room Name is required</div>
+              <div *ngIf="roomName.errors.pattern">Room Name may not begin or end with whitespace or contain special characters.</div>
           </div>
       </div>
 

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
+import { Room } from '../room';
+import { RoomService } from '../room.service';
 
 @Component({
   selector: 'app-room-form',
@@ -9,7 +11,10 @@ import {Router} from '@angular/router';
 export class RoomFormComponent {
   model: any = {};
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private roomService: RoomService
+  ) {}
 
   create_UUID(){
       var dt = new Date().getTime();
@@ -23,11 +28,18 @@ export class RoomFormComponent {
 
   onSubmit() {
     //console.log(JSON.stringify(this.model));
+    var roomName = this.model.roomName;
+    var displayName = this.model.displayName;
 
     // make a new room
     var roomId = this.create_UUID();
-    // TODO: store roomId with this.model.roomName
 
+    this.addRoom(new Room(roomId, roomName));
     this.router.navigate([roomId]);
   }
+
+  addRoom(room: Room): void {
+    this.roomService.addRoom(room).subscribe();
+  }
+
 }

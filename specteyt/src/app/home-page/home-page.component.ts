@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Hero }         from '../hero';
-import { HeroService }  from '../hero.service';
+import { RoomService }  from '../room.service';
 
 @Component({
   selector: 'app-home-page',
@@ -10,23 +9,9 @@ import { HeroService }  from '../hero.service';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor(private heroService: HeroService) {}
+  constructor(private heroService: RoomService) {}
 
   ngOnInit(): void {
   }
-
-  addRoom(name: string): void {
-    name = name.trim();
-    if (!name) { return; }
-    // this.heroService.addHero({ name } as Hero)
-    //   .subscribe(hero => {
-    //     this.heroes.push(hero);
-    //   });
-  }
-
-  // delete(hero: Hero): void {
-  //   this.heroes = this.heroes.filter(h => h !== hero);
-  //   this.heroService.deleteHero(hero).subscribe();
-  // }
 
 }

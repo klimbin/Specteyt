@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 
 import { Room } from '../room';
@@ -17,11 +16,10 @@ export class RoomPageComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private roomService: RoomService,
-    private location: Location,
     private router: Router
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     const roomId = this.route.snapshot.paramMap.get('id');
     // check if room exists otherwise redirect user to home page
     this.roomService.getRoom(roomId)

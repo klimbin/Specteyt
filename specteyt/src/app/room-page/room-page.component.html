@@ -1,1 +1,14 @@
-<p class="text-center">Room name: {{room.name}}</p>
+<ng-container *ngIf="room; then loaded; else loading"></ng-container>
+
+<ng-template #loaded>
+  <div class="text-center">
+    Room name: {{room.name}}
+  </div>
+</ng-template>
+
+<ng-template #loading>
+  <div class="preloader text-center">
+    Loading
+    <div class="moving-box"></div>
+  </div>
+</ng-template>

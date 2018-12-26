@@ -30,7 +30,7 @@ export class RoomService {
   }
 
   /** GET room by id. Return `undefined` when id not found */
-  getRoomNo404<Data>(id: number): Observable<Room> {
+  getRoomNo404<Data>(id: string): Observable<Room> {
     const url = `${this.roomsUrl}/?id=${id}`;
     return this.http.get<Room[]>(url)
       .pipe(
@@ -44,7 +44,7 @@ export class RoomService {
   }
 
   /** GET room by id. Will 404 if id not found */
-  getRoom(id: number): Observable<Room> {
+  getRoom(id: string): Observable<Room> {
     const url = `${this.roomsUrl}/${id}`;
     return this.http.get<Room>(url).pipe(
       tap(_ => this.log(`fetched room id=${id}`)),

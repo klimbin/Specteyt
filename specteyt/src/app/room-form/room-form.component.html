@@ -5,9 +5,11 @@
           <label for="displayName">Display Name</label>
           <input type="text" class="form-control" name="displayName"
                  [(ngModel)]="model.displayName" #displayName="ngModel"
-                 [ngClass]="{ 'is-invalid': f.submitted && displayName.invalid }" required pattern="[\w\.]+"/>
+                 [ngClass]="{ 'is-invalid': f.submitted && displayName.invalid }"
+                 required pattern="[\w\.]+" minlength="3" maxlength="19"/>
           <div *ngIf="f.submitted && displayName.invalid" class="invalid-feedback">
               <div *ngIf="displayName.errors.required">Display Name is required</div>
+              <div *ngIf="displayName.errors.minlength">Display Name must be at least 3 characters</div>
               <div *ngIf="displayName.errors.pattern">No whitespace or special characters.</div>
           </div>
       </div>
@@ -16,9 +18,11 @@
           <label for="roomName">Room Name</label>
           <input type="text" class="form-control" name="roomName"
                  [(ngModel)]="model.roomName" #roomName="ngModel"
-                 [ngClass]="{ 'is-invalid': f.submitted && roomName.invalid }" required pattern="^\w+(?: \w+)*$"/>
+                 [ngClass]="{ 'is-invalid': f.submitted && roomName.invalid }"
+                 required pattern="^\w+(?: \w+)*$" minlength="3" maxlength="19"/>
           <div *ngIf="f.submitted && roomName.invalid" class="invalid-feedback">
               <div *ngIf="roomName.errors.required">Room Name is required</div>
+              <div *ngIf="roomName.errors.minlength">Room Name must be at least 3 characters</div>
               <div *ngIf="roomName.errors.pattern">No trailing whitespace or special characters.</div>
           </div>
       </div>

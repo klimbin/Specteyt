@@ -1,0 +1,12 @@
+<div class="container form-group">
+  <label for="video">Current Video</label>
+  <input type="text" class="form-control" (keyup)="onKey($event)"
+         placeholder="https://www.youtube.com/watch?v=..."/>
+  <hr>
+
+  <iframe *ngIf="showVideo" width="560" height="315"
+          [src]="videoUrl" frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+  </iframe>
+</div>

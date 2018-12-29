@@ -13,6 +13,7 @@ import { HomePageComponent }  from './home-page/home-page.component';
 import { RoomPageComponent }  from './room-page/room-page.component';
 import { RoomFormComponent } from './room-form/room-form.component';
 import { MessagesComponent }    from './messages/messages.component';
+import { VideoPlayerComponent } from './video-player/video-player.component';
 
 @NgModule({
   imports: [
@@ -33,7 +34,8 @@ import { MessagesComponent }    from './messages/messages.component';
     HomePageComponent,
     RoomPageComponent,
     RoomFormComponent,
-    MessagesComponent
+    MessagesComponent,
+    VideoPlayerComponent
   ],
   bootstrap: [ AppComponent ]
 })

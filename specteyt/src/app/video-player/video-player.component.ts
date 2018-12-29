@@ -25,7 +25,12 @@ export class VideoPlayerComponent implements OnInit {
   onKey(event: KeyboardEvent) {
     var input = (<HTMLInputElement>event.target).value;
     if(input.startsWith("https://www.youtube.com/watch?v=")) {
-      this.updateVideoUrl(input.substring("https://www.youtube.com/watch?v=".length));
+      var newVideoId = input.substring("https://www.youtube.com/watch?v=".length);
+      // check if newVideoId is different
+      if(this.videoId != newVideoId) {
+        this.videoId = newVideoId
+        this.updateVideoUrl(newVideoId);
+      }
     }
   }
 
